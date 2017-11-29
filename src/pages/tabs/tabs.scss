@@ -1,0 +1,43 @@
+page-tabs{
+    .tabs-md .tabbar{
+        background: rgb(41, 39, 39) !important;
+        color : white;
+    }
+
+    .tabs-ios .tabbar{
+        background: rgb(41, 39, 39) !important;
+        color : white;
+    }
+
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+        color : white;
+    }
+
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon{
+        color : white;
+    }
+
+    .tabs-md .tab-button[aria-selected=true]{
+        color : white;
+    }
+
+    .tabs-ios .tab-button[aria-selected=true]{
+        color : white;
+    }
+
+    .tabs-md .tab-button{
+        color : rgb(182, 180, 180);
+    }
+
+    .tabs-ios .tab-button{
+        color : rgb(182, 180, 180);
+    }
+
+    .tabs-md .tab-button-icon{
+        color : rgb(182, 180, 180);
+    }
+
+    .tabs-ios .tab-button-icon{
+        color : rgb(182, 180, 180);
+    }
+}

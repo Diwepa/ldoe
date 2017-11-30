@@ -1,6 +1,7 @@
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
+import { SafariViewController } from '@ionic-native/safari-view-controller';
 
 
 @Component({
@@ -9,11 +10,27 @@ import { StatusBar } from '@ionic-native/status-bar';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,platform : Platform, public statusBar : StatusBar) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.backgroundColorByName('black');
+  private showSpinner : boolean = true;
+
+  constructor(public navCtrl: NavController,public platform : Platform, public safariViewController : SafariViewController) {
+
+    this.safariViewController.isAvailable().then(()=>{
+      this.safariViewController.show({
+        url: 'http://lastdayonearth.es/foro',
+        hidden: false,
+        animated: true,
+        transition: 'curl',
+        enterReaderModeIfAvailable: false,
+        tintColor: '#000000'
+      }).subscribe((result: any) => {
+        if(result.event === 'opened') console.log('Opened');
+        else if(result.event === 'loaded') console.log('Loaded');
+        else if(result.event === 'closed') console.log('Closed');
+      },
+      (error: any) => console.error(error)
+    );
+    }).catch(error=>{
+      console.log(error);
     });
   }
 

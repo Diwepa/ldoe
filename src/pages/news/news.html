@@ -1,0 +1,4 @@
+<ion-content no-bounce>
+  <ion-spinner class="spinner-absolute" *ngIf="showSpinner"></ion-spinner>
+  <iframe src="http://lastdayonearth.es/noticias/" frameborder="0" style="width:100%;height:100%" (load)="showSpinner = false" sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-popups"></iframe>
+</ion-content>
